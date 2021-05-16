@@ -70,6 +70,8 @@ class ThrottleZone(object):
         # Has the bucket capacity been exceeded?
         if new_value > self.bucket_capacity:
             raise RateLimitExceeded(self.name)
+            #content = {"message": "You have reached the limit of requests." }
+            #return HttpResponse (json.dumps(content), status=429, content_type="application/json")
 
         num_remaining = self.bucket_capacity - new_value
 
